@@ -1,8 +1,21 @@
-import { Tabs } from "expo-router";
+import { TabBarIcon } from "@/components/navigation/TabBarIcon";
+import { useAuthSession } from "@/hooks/useAuthSession";
+import { Redirect, Tabs } from "expo-router";
 import React from "react";
-import { TabBarIcon } from "@/src/components/navigation/TabBarIcon";
+import { Text } from "react-native-paper";
 
 export default function TabLayout() {
+  const { session, isLoading } = useAuthSession();
+
+  if (isLoading) {
+    // TODO: Render splash screen until the session is authenticated
+    return <Text>Loading...</Text>;
+  }
+
+  if (!session) {
+    return <Redirect href="/sign-in" />;
+  }
+
   return (
     <Tabs
       screenOptions={{

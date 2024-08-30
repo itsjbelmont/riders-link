@@ -1,11 +1,14 @@
+import { useAuthSession } from "@/hooks/useAuthSession";
 import { router } from "expo-router";
 import React from "react";
 import { SafeAreaView, Text } from "react-native";
 import { Button } from "react-native-paper";
 
 export default function SignInView() {
+  const { signIn } = useAuthSession();
+
   const handleSignIn = () => {
-    router.push("/");
+    signIn("TempUser", "TempPassword");
   };
 
   return (
