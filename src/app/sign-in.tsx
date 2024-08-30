@@ -3,10 +3,11 @@ import React from "react";
 import { SafeAreaView, Text } from "react-native";
 import { Button } from "react-native-paper";
 
-export default function ProfileView() {
-  const handleSignOut = () => {
-    router.push("/sign-in");
+export default function SignInView() {
+  const handleSignIn = () => {
+    router.push("/");
   };
+
   return (
     <SafeAreaView
       style={{
@@ -16,9 +17,9 @@ export default function ProfileView() {
         justifyContent: "center",
       }}
     >
-      <Text>This is the profile view</Text>
-      <Button mode="contained" onPress={handleSignOut}>
-        Sign Out
+      <Text>This is the sign-in view</Text>
+      <Button mode="contained" onPress={handleSignIn}>
+        Sign In
       </Button>
     </SafeAreaView>
   );
