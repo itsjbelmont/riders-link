@@ -1,5 +1,5 @@
 import { useAuthSession } from "@/hooks/useAuthSession";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { View } from "react-native";
 import { Button, HelperText, Text, TextInput } from "react-native-paper";
 
@@ -7,8 +7,17 @@ export default function SignInView() {
   const { signIn } = useAuthSession();
   const [userName, setUserName] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const [loginError, setLoginError] = useState<boolean>(false);
+
+  useEffect(() => {
+    setLoginError(false);
+  }, [userName, password, setLoginError]);
 
   const handleSignIn = () => {
+    if (userName === "" || password === "") {
+      setLoginError(true);
+      return;
+    }
     signIn(userName, password);
   };
 
@@ -17,31 +26,49 @@ export default function SignInView() {
       style={{
         flex: 1,
         justifyContent: "space-between",
-        paddingHorizontal: 16,
         paddingVertical: 32,
       }}
     >
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-        <View style={{ width: "80%", maxWidth: 400 }}>
-          <HelperText type="info">Sign in or create an account.</HelperText>
+        <View
+          style={{
+            width: "80%",
+            maxWidth: 400,
+            alignItems: "center", // Center content horizontally
+            justifyContent: "center", // Center content vertically
+          }}
+        >
+          <Text style={{ fontSize: 24, marginBottom: 12 }}>RIDERS LINK</Text>
           <TextInput
-            label="Username/Email"
+            label="Email / Username"
             value={userName}
             onChangeText={(text) => setUserName(text)}
             mode="outlined"
-            style={{ marginBottom: 16 }}
+            style={{ marginBottom: 12, width: "100%" }} // Set width to 100% to match the container
+            left={<TextInput.Icon icon="account" />}
           />
           <TextInput
             label="Password"
             value={password}
             onChangeText={(text) => setPassword(text)}
-            style={{ marginBottom: 16 }}
+            style={{ marginBottom: 6, width: "100%" }} // Set width to 100% to match the container
             mode="outlined"
+            left={<TextInput.Icon icon="lock" />}
             secureTextEntry
           />
-          <Button mode="contained" onPress={handleSignIn}>
+          <HelperText type="info" style={{ marginBottom: 6 }}>
+            Forgot your password?
+          </HelperText>
+          <Button
+            mode="contained"
+            onPress={handleSignIn}
+            style={{ width: "50%" }}
+          >
             Sign In
           </Button>
+          <HelperText type="error" visible={loginError}>
+            Username or password is incorrect.
+          </HelperText>
         </View>
       </View>
       <View

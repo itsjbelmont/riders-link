@@ -1,8 +1,7 @@
 import { useAuthSession } from "@/hooks/useAuthSession";
-import { router } from "expo-router";
 import React from "react";
-import { SafeAreaView, Text } from "react-native";
-import { Button } from "react-native-paper";
+import { SafeAreaView } from "react-native";
+import { Button, Text } from "react-native-paper";
 
 export default function ProfileView() {
   const { signOut } = useAuthSession();
