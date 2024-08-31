@@ -1,6 +1,7 @@
+import ThemeAwareLogo from "@/components/ThemeAwareLogo";
 import { useAuthSession } from "@/hooks/useAuthSession";
 import React, { useEffect, useState } from "react";
-import { View } from "react-native";
+import { PixelRatio, View } from "react-native";
 import { Button, HelperText, Text, TextInput } from "react-native-paper";
 
 export default function SignInView() {
@@ -38,7 +39,7 @@ export default function SignInView() {
             justifyContent: "center", // Center content vertically
           }}
         >
-          <Text style={{ fontSize: 24, marginBottom: 12 }}>RIDERS LINK</Text>
+          <ThemeAwareLogo style={{ marginBottom: 12 }} />
           <TextInput
             label="Email / Username"
             value={userName}
