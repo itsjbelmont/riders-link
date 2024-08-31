@@ -1,29 +1,50 @@
 import { useAuthSession } from "@/hooks/useAuthSession";
-import { router } from "expo-router";
-import React from "react";
-import { SafeAreaView, Text } from "react-native";
-import { Button } from "react-native-paper";
+import React, { useState } from "react";
+import { View } from "react-native";
+import { Button, HelperText, Text, TextInput } from "react-native-paper";
 
 export default function SignInView() {
   const { signIn } = useAuthSession();
+  const [userName, setUserName] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
 
   const handleSignIn = () => {
-    signIn("TempUser", "TempPassword");
+    signIn(userName, password);
   };
 
   return (
-    <SafeAreaView
+    <View
       style={{
-        display: "flex",
         flex: 1,
         alignItems: "center",
         justifyContent: "center",
       }}
     >
-      <Text>This is the sign-in view</Text>
-      <Button mode="contained" onPress={handleSignIn}>
-        Sign In
-      </Button>
-    </SafeAreaView>
+      <View style={{ width: "80%", maxWidth: 400 }}>
+        <HelperText type="info">Sign in or create an account.</HelperText>
+        <TextInput
+          label="Username/Email"
+          value={userName}
+          onChangeText={(text) => setUserName(text)}
+          style={{ marginBottom: 16 }}
+        />
+        <TextInput
+          label="Password"
+          value={password}
+          onChangeText={(text) => setPassword(text)}
+          style={{ marginBottom: 16 }}
+          secureTextEntry
+        />
+        <Button mode="contained" onPress={handleSignIn}>
+          Sign In
+        </Button>
+      </View>
+      <View style={{ flexDirection: "row", alignItems: "center" }}>
+        <Text>Don't have an account?</Text>
+        <Button onPress={() => console.log("create account")}>
+          Create account.
+        </Button>
+      </View>
+    </View>
   );
 }
