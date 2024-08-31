@@ -1,5 +1,6 @@
 import ThemeAwareLogo from "@/components/ThemeAwareLogo";
 import { useAuthSession } from "@/hooks/useAuthSession";
+import { router } from "expo-router";
 import React, { useEffect, useState } from "react";
 import { PixelRatio, View } from "react-native";
 import { Button, HelperText, Text, TextInput } from "react-native-paper";
@@ -22,6 +23,10 @@ export default function SignInView() {
     signIn(userName, password);
   };
 
+  const handleGoToAccountCreation = () => {
+    router.push("/account-creation");
+  };
+
   return (
     <View
       style={{
@@ -39,7 +44,7 @@ export default function SignInView() {
             justifyContent: "center", // Center content vertically
           }}
         >
-          <ThemeAwareLogo style={{ marginBottom: 12 }} />
+          <ThemeAwareLogo style={{ marginBottom: 24 }} />
           <TextInput
             label="Email / Username"
             value={userName}
@@ -80,9 +85,7 @@ export default function SignInView() {
         }}
       >
         <Text>Don't have an account?</Text>
-        <Button onPress={() => console.log("create account")}>
-          Create account.
-        </Button>
+        <Button onPress={handleGoToAccountCreation}>Create account.</Button>
       </View>
     </View>
   );

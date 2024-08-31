@@ -46,6 +46,10 @@ export default function RootLayout() {
           <Stack>
             <Stack.Screen name="(app)" options={{ headerShown: false }} />
             <Stack.Screen name="sign-in" options={{ headerShown: false }} />
+            <Stack.Screen
+              name="account-creation"
+              options={{ headerShown: false }}
+            />
           </Stack>
         </ThemeProvider>
       </PaperProvider>
