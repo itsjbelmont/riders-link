@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, ImageStyle, useColorScheme } from "react-native";
+import { Image, ImageStyle, useColorScheme, View } from "react-native";
 
 export default function ThemeAwareLogo({ style }: { style?: ImageStyle }) {
   const systemColorScheme = useColorScheme();
@@ -9,5 +9,16 @@ export default function ThemeAwareLogo({ style }: { style?: ImageStyle }) {
 
   const imagePath = systemColorScheme === "dark" ? darkLogo : lightLogo;
 
-  return <Image source={imagePath} style={style} />;
+  return (
+    <View style={{ flexDirection: "row" }}>
+      <Image
+        source={imagePath}
+        style={{
+          ...style,
+          flex: 1,
+          aspectRatio: 1.817,
+        }}
+      />
+    </View>
+  );
 }
