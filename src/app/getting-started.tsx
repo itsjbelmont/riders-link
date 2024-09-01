@@ -2,9 +2,11 @@ import ThemeAwareLogo from "@/components/ThemeAwareLogo";
 import { router } from "expo-router";
 import React from "react";
 import { Image, View } from "react-native";
-import { Button, HelperText, Text } from "react-native-paper";
+import { Button, HelperText, Text, useTheme } from "react-native-paper";
 
 export default function GettingStartedView() {
+  const theme = useTheme();
+
   const handleGoToAccountCreation = () => {
     router.push("/account-creation");
   };
@@ -20,23 +22,43 @@ export default function GettingStartedView() {
         flex: 1,
         alignItems: "center",
         justifyContent: "center",
-        padding: 50,
+        padding: 30,
       }}
     >
       <View style={{ width: "40%", marginBottom: 20 }}>
         <ThemeAwareLogo />
       </View>
 
-      <View style={{ flexDirection: "row", marginBottom: 12 }}>
+      <View
+        style={{
+          position: "relative",
+          flexDirection: "row",
+          marginBottom: 12,
+          elevation: 3,
+        }}
+      >
         <Image
           style={{
             resizeMode: "contain",
             flex: 1,
-            aspectRatio: 3 / 4,
+            aspectRatio: 3 / 3.6,
             borderRadius: 20,
           }}
           source={require("@/../assets/images/photography/GettingStartedImage.png")}
         />
+        <Text
+          style={{
+            position: "absolute",
+            width: "100%",
+            textAlign: "center",
+            bottom: 10,
+            fontSize: 18,
+            fontWeight: "bold",
+            color: "white",
+          }}
+        >
+          The Ultimate MTB Community
+        </Text>
       </View>
 
       <HelperText type="info" style={{ marginBottom: 12 }}>
