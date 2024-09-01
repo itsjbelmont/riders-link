@@ -1,4 +1,5 @@
 import ThemeAwareLogo from "@/components/ThemeAwareLogo";
+import { WHITE } from "@/constants/theming/palette";
 import { router } from "expo-router";
 import React from "react";
 import { Image, View } from "react-native";
@@ -54,7 +55,7 @@ export default function GettingStartedView() {
             bottom: 10,
             fontSize: 18,
             fontWeight: "bold",
-            color: "white",
+            color: WHITE,
           }}
         >
           The Ultimate MTB Community
