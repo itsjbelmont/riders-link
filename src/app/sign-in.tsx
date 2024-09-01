@@ -44,7 +44,9 @@ export default function SignInView() {
             justifyContent: "center", // Center content vertically
           }}
         >
-          <ThemeAwareLogo style={{ marginBottom: 24 }} />
+          <ThemeAwareLogo
+            style={{ marginBottom: 12, width: 200, resizeMode: "contain" }}
+          />
           <TextInput
             label="Email / Username"
             value={userName}
