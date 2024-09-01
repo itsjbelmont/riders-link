@@ -38,7 +38,6 @@ export function AuthSessionProvider({ children }: PropsWithChildren) {
   const signOut = () => {
     // TODO: API Call to tell our auth system to kill the existing token
     setSession(null);
-    router.push("/sign-in");
   };
 
   return (

@@ -50,6 +50,10 @@ export default function RootLayout() {
               name="account-creation"
               options={{ headerShown: false }}
             />
+            <Stack.Screen
+              name="getting-started"
+              options={{ headerShown: false }}
+            />
           </Stack>
         </ThemeProvider>
       </PaperProvider>
