@@ -38,6 +38,7 @@ export default function RootLayout() {
   const systemColorScheme = useColorScheme();
 
   const paperTheme = systemColorScheme === 'dark' ? appliedDarkTheme : appliedLightTheme;
+
   return (
     <AuthSessionProvider>
       <PaperProvider theme={paperTheme}>

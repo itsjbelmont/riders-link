@@ -18,6 +18,7 @@ export default function SignInView() {
   const handleSignIn = () => {
     if (userName === '' || password === '') {
       setLoginError(true);
+
       return;
     }
     signIn(userName, password);
@@ -82,7 +83,7 @@ export default function SignInView() {
           justifyContent: 'center',
         }}
       >
-        <Text>Don't have an account?</Text>
+        <Text>{"Don't have an account?"}</Text>
         <Button onPress={handleGoToAccountCreation}>Create account.</Button>
       </View>
     </View>

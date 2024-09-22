@@ -11,5 +11,6 @@ export function useAuthSession() {
       throw new Error('useAuthSession must be wrapped in a <AuthSessionProvider>');
     }
   }
+
   return context;
 }

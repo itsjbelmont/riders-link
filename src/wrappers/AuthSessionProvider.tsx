@@ -26,10 +26,7 @@ export function AuthSessionProvider({ children }: PropsWithChildren) {
   const signIn = (userName: string, password: string) => {
     // TODO: Perform sign in logic here - for now push a dummy token
     // TODO: DO NOT LOG PASSWORD
-    console.log(
-      `[AuthSessionProvider AuthSessionProvider] Logging in for user ${userName} with password ${password}`
-    );
-    setSession('xxx');
+    setSession(userName + password);
 
     // TODO: Make sure login actually succeeded here before routing to index
     router.push('/');
