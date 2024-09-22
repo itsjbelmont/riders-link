@@ -1,12 +1,6 @@
 // https://docs.expo.dev/guides/using-eslint/
 module.exports = {
-  extends: [
-    'expo',
-    'prettier',
-    'eslint:recommended', // Standard JavaScript best practices
-    'plugin:react/recommended', // Best practices for React
-    'plugin:@typescript-eslint/recommended', // TypeScript-specific rules
-  ],
+  extends: ['expo', 'prettier'],
   plugins: ['prettier', `@typescript-eslint`, `react`],
   parser: '@typescript-eslint/parser', // TypeScript parser
   parserOptions: {
@@ -29,6 +23,5 @@ module.exports = {
     'no-console': 'warn', // Warns about `console.log`
     'no-duplicate-imports': 'error', // Avoid duplicate imports
     eqeqeq: ['error', 'always'], // Enforce strict equality (`===` and `!==`)
-    '@typescript-eslint/no-var-requires': 'warn', // TODO: Probably not good practice - make this an error. Needed as a warn for now so we can load local images.
   },
 };
