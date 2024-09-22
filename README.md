@@ -72,6 +72,12 @@ Add the following to VS Code's `Settings.json` file:
   "editor.detectIndentation": false,
 ```
 
+### Git strategy
+
+* TODO: pick a git strategy after mvp.
+
+* when merging branches via github pull requests, ensure `squash and merge` is selected as the merge strategy to keep the git history for primary branches clean. read about this strategy [here](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges#squash-and-merge-your-commits).
+
 ### Configure Env
 
 TODO: Any environment setup goes here
