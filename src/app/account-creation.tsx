@@ -1,36 +1,36 @@
-import { useAuthSession } from "@/hooks/useAuthSession";
-import { router } from "expo-router";
-import React from "react";
-import { View } from "react-native";
-import { Button, Text } from "react-native-paper";
+import { useAuthSession } from '@/hooks/useAuthSession';
+import { router } from 'expo-router';
+import React from 'react';
+import { View } from 'react-native';
+import { Button, Text } from 'react-native-paper';
 
 export default function AccountCreationView() {
   const { signIn } = useAuthSession();
 
   const handleAccountCreation = () => {
     // TODO: Handle api calls for account creation then sign the user in
-    signIn("TEMP_USER", "TEMP_PASSWORD");
+    signIn('TEMP_USER', 'TEMP_PASSWORD');
   };
 
   const handleGoBackToSignIn = () => {
-    router.push("/sign-in");
+    router.push('/sign-in');
   };
 
   return (
     <View
       style={{
         flex: 1,
-        justifyContent: "space-between",
+        justifyContent: 'space-between',
         paddingVertical: 32,
       }}
     >
-      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <View
           style={{
-            width: "80%",
+            width: '80%',
             maxWidth: 400,
-            alignItems: "center", // Center content horizontally
-            justifyContent: "center", // Center content vertically
+            alignItems: 'center', // Center content horizontally
+            justifyContent: 'center', // Center content vertically
           }}
         >
           <Text>This is the account creation view</Text>
@@ -41,9 +41,9 @@ export default function AccountCreationView() {
       </View>
       <View
         style={{
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "center",
+          flexDirection: 'row',
+          alignItems: 'center',
+          justifyContent: 'center',
         }}
       >
         <Text>Already have an account?</Text>

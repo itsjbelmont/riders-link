@@ -1,14 +1,14 @@
-import ThemeAwareLogo from "@/components/ThemeAwareLogo";
-import { useAuthSession } from "@/hooks/useAuthSession";
-import { router } from "expo-router";
-import React, { useEffect, useState } from "react";
-import { PixelRatio, View } from "react-native";
-import { Button, HelperText, Text, TextInput } from "react-native-paper";
+import ThemeAwareLogo from '@/components/ThemeAwareLogo';
+import { useAuthSession } from '@/hooks/useAuthSession';
+import { router } from 'expo-router';
+import React, { useEffect, useState } from 'react';
+import { View } from 'react-native';
+import { Button, HelperText, Text, TextInput } from 'react-native-paper';
 
 export default function SignInView() {
   const { signIn } = useAuthSession();
-  const [userName, setUserName] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
+  const [userName, setUserName] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
   const [loginError, setLoginError] = useState<boolean>(false);
 
   useEffect(() => {
@@ -16,35 +16,36 @@ export default function SignInView() {
   }, [userName, password, setLoginError]);
 
   const handleSignIn = () => {
-    if (userName === "" || password === "") {
+    if (userName === '' || password === '') {
       setLoginError(true);
+
       return;
     }
     signIn(userName, password);
   };
 
   const handleGoToAccountCreation = () => {
-    router.push("/account-creation");
+    router.push('/account-creation');
   };
 
   return (
     <View
       style={{
         flex: 1,
-        justifyContent: "space-between",
+        justifyContent: 'space-between',
         paddingVertical: 32,
       }}
     >
-      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <View
           style={{
-            width: "80%",
+            width: '80%',
             maxWidth: 400,
-            alignItems: "center", // Center content horizontally
-            justifyContent: "center", // Center content vertically
+            alignItems: 'center', // Center content horizontally
+            justifyContent: 'center', // Center content vertically
           }}
         >
-          <View style={{ marginBottom: 12, width: "50%" }}>
+          <View style={{ marginBottom: 12, width: '50%' }}>
             <ThemeAwareLogo />
           </View>
           <TextInput
@@ -52,14 +53,14 @@ export default function SignInView() {
             value={userName}
             onChangeText={(text) => setUserName(text)}
             mode="outlined"
-            style={{ marginBottom: 12, width: "100%" }} // Set width to 100% to match the container
+            style={{ marginBottom: 12, width: '100%' }} // Set width to 100% to match the container
             left={<TextInput.Icon icon="account" />}
           />
           <TextInput
             label="Password"
             value={password}
             onChangeText={(text) => setPassword(text)}
-            style={{ marginBottom: 6, width: "100%" }} // Set width to 100% to match the container
+            style={{ marginBottom: 6, width: '100%' }} // Set width to 100% to match the container
             mode="outlined"
             left={<TextInput.Icon icon="lock" />}
             secureTextEntry
@@ -67,11 +68,7 @@ export default function SignInView() {
           <HelperText type="info" style={{ marginBottom: 6 }}>
             Forgot your password?
           </HelperText>
-          <Button
-            mode="contained"
-            onPress={handleSignIn}
-            style={{ width: "50%" }}
-          >
+          <Button mode="contained" onPress={handleSignIn} style={{ width: '50%' }}>
             Sign In
           </Button>
           <HelperText type="error" visible={loginError}>
@@ -81,12 +78,12 @@ export default function SignInView() {
       </View>
       <View
         style={{
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "center",
+          flexDirection: 'row',
+          alignItems: 'center',
+          justifyContent: 'center',
         }}
       >
-        <Text>Don't have an account?</Text>
+        <Text>{"Don't have an account?"}</Text>
         <Button onPress={handleGoToAccountCreation}>Create account.</Button>
       </View>
     </View>

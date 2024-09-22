@@ -1,0 +1,27 @@
+// https://docs.expo.dev/guides/using-eslint/
+module.exports = {
+  extends: ['expo', 'prettier'],
+  plugins: ['prettier', `@typescript-eslint`, `react`],
+  parser: '@typescript-eslint/parser', // TypeScript parser
+  parserOptions: {
+    ecmaVersion: 2021, // Allows ECMAScript 2021 syntax
+    sourceType: 'module', // Enables the use of imports
+    ecmaFeatures: {
+      jsx: true, // Enables JSX for React
+    },
+  },
+  rules: {
+    'prettier/prettier': 'error',
+    'react/prop-types': 'off', // Disable prop-types since TypeScript is used
+    'react/react-in-jsx-scope': 'off', // No need for `React` import in React 17+
+    'padding-line-between-statements': [
+      // Blank line rules for readability
+      'error',
+      { blankLine: 'always', prev: '*', next: ['return', 'function', 'class'] },
+    ],
+    '@typescript-eslint/no-unused-vars': ['error'], // Avoid unused variables
+    'no-console': 'warn', // Warns about `console.log`
+    'no-duplicate-imports': 'error', // Avoid duplicate imports
+    eqeqeq: ['error', 'always'], // Enforce strict equality (`===` and `!==`)
+  },
+};

@@ -1,8 +1,8 @@
-import { TabBarIcon } from "@/components/navigation/TabBarIcon";
-import { useAuthSession } from "@/hooks/useAuthSession";
-import { Redirect, Tabs } from "expo-router";
-import React from "react";
-import { Text } from "react-native-paper";
+import { TabBarIcon } from '@/components/navigation/TabBarIcon';
+import { useAuthSession } from '@/hooks/useAuthSession';
+import { Redirect, Tabs } from 'expo-router';
+import React from 'react';
+import { Text } from 'react-native-paper';
 
 export default function TabLayout() {
   const { session, isLoading } = useAuthSession();
@@ -25,24 +25,18 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: "Home",
+          title: 'Home',
           tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon
-              name={focused ? "home" : "home-outline"}
-              color={color}
-            />
+            <TabBarIcon name={focused ? 'home' : 'home-outline'} color={color} />
           ),
         }}
       />
       <Tabs.Screen
         name="profile"
         options={{
-          title: "Profile",
+          title: 'Profile',
           tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon
-              name={focused ? "code-slash" : "code-slash-outline"}
-              color={color}
-            />
+            <TabBarIcon name={focused ? 'code-slash' : 'code-slash-outline'} color={color} />
           ),
         }}
       />
