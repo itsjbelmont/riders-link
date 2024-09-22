@@ -1,18 +1,21 @@
 import { useAuthSession } from '@/hooks/useAuthSession';
 import React from 'react';
-import { SafeAreaView } from 'react-native';
+import { View } from 'react-native';
 import { Button, Text } from 'react-native-paper';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export default function ProfileView() {
   const { signOut } = useAuthSession();
+  const insets = useSafeAreaInsets();
 
   const handleSignOut = () => {
     signOut();
   };
 
   return (
-    <SafeAreaView
+    <View
       style={{
+        paddingTop: insets.top,
         display: 'flex',
         flex: 1,
         alignItems: 'center',
@@ -23,6 +26,6 @@ export default function ProfileView() {
       <Button mode="contained" onPress={handleSignOut}>
         Sign Out
       </Button>
-    </SafeAreaView>
+    </View>
   );
 }

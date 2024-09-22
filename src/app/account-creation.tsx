@@ -3,9 +3,11 @@ import { router } from 'expo-router';
 import React from 'react';
 import { View } from 'react-native';
 import { Button, Text } from 'react-native-paper';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export default function AccountCreationView() {
   const { signIn } = useAuthSession();
+  const insets = useSafeAreaInsets();
 
   const handleAccountCreation = () => {
     // TODO: Handle api calls for account creation then sign the user in
@@ -21,7 +23,9 @@ export default function AccountCreationView() {
       style={{
         flex: 1,
         justifyContent: 'space-between',
-        paddingVertical: 32,
+        paddingTop: insets.top,
+        paddingBottom: insets.bottom,
+        paddingHorizontal: 30,
       }}
     >
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
