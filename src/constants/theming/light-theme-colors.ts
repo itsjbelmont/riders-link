@@ -1,4 +1,4 @@
-import { PRIMARY_COLOR, WHITE, BLACK, SECONDARY_COLOR } from "./palette";
+import { PRIMARY_COLOR, WHITE, BLACK } from "./palette";
 
 export const lightThemeColors = {
   primary: PRIMARY_COLOR.KEY,

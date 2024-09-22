@@ -2,7 +2,7 @@ import ThemeAwareLogo from "@/components/ThemeAwareLogo";
 import { useAuthSession } from "@/hooks/useAuthSession";
 import { router } from "expo-router";
 import React, { useEffect, useState } from "react";
-import { PixelRatio, View } from "react-native";
+import { View } from "react-native";
 import { Button, HelperText, Text, TextInput } from "react-native-paper";
 
 export default function SignInView() {

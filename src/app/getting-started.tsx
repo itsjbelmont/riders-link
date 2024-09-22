@@ -3,11 +3,9 @@ import { WHITE } from "@/constants/theming/palette";
 import { router } from "expo-router";
 import React from "react";
 import { Image, View } from "react-native";
-import { Button, HelperText, Text, useTheme } from "react-native-paper";
+import { Button, HelperText, Text } from "react-native-paper";
 
 export default function GettingStartedView() {
-  const theme = useTheme();
-
   const handleGoToAccountCreation = () => {
     router.push("/account-creation");
   };
