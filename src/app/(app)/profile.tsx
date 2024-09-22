@@ -1,7 +1,7 @@
-import { useAuthSession } from "@/hooks/useAuthSession";
-import React from "react";
-import { SafeAreaView } from "react-native";
-import { Button, Text } from "react-native-paper";
+import { useAuthSession } from '@/hooks/useAuthSession';
+import React from 'react';
+import { SafeAreaView } from 'react-native';
+import { Button, Text } from 'react-native-paper';
 
 export default function ProfileView() {
   const { signOut } = useAuthSession();
@@ -13,10 +13,10 @@ export default function ProfileView() {
   return (
     <SafeAreaView
       style={{
-        display: "flex",
+        display: 'flex',
         flex: 1,
-        alignItems: "center",
-        justifyContent: "center",
+        alignItems: 'center',
+        justifyContent: 'center',
       }}
     >
       <Text>This is the profile view</Text>

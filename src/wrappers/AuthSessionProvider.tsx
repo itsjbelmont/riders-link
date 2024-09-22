@@ -1,6 +1,6 @@
-import { useStorageState } from "@/hooks/useStorageState";
-import { router } from "expo-router";
-import { createContext, PropsWithChildren } from "react";
+import { useStorageState } from '@/hooks/useStorageState';
+import { router } from 'expo-router';
+import { createContext, PropsWithChildren } from 'react';
 
 /**
  *  Made with help from expo auth tutorial: https://docs.expo.dev/router/reference/authentication/
@@ -21,7 +21,7 @@ export const AuthContext = createContext<AuthContextType>({
 });
 
 export function AuthSessionProvider({ children }: PropsWithChildren) {
-  const [[isLoading, session], setSession] = useStorageState("session");
+  const [[isLoading, session], setSession] = useStorageState('session');
 
   const signIn = (userName: string, password: string) => {
     // TODO: Perform sign in logic here - for now push a dummy token
@@ -29,10 +29,10 @@ export function AuthSessionProvider({ children }: PropsWithChildren) {
     console.log(
       `[AuthSessionProvider AuthSessionProvider] Logging in for user ${userName} with password ${password}`
     );
-    setSession("xxx");
+    setSession('xxx');
 
     // TODO: Make sure login actually succeeded here before routing to index
-    router.push("/");
+    router.push('/');
   };
 
   const signOut = () => {
