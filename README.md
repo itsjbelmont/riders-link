@@ -41,8 +41,17 @@ Code style in this project is enforced by [Prettier](./.prettierrc) and [ESLint]
 
 #### Manual Linting
 
-- `npm run lint`: Lint the entire project and SHOW any errors
-- `npm run lint -- --fix`: Lint the entire project and FIX any erros
+- Lint the entire project and list any errors
+
+  ```
+  npm run lint
+  ```
+
+- Lint the entire project and auto-fix any erros
+
+  ```
+  npm run lint -- --fix
+  ```
 
 #### VS Code Setup For Code Styles/Linting
 
