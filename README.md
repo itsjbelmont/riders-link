@@ -2,7 +2,9 @@
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
-## Get started (Run In Dev Mode)
+## Get started
+
+### Run In Dev-Mode
 
 1. Install dependencies
 
@@ -25,20 +27,30 @@ In the output, you'll find options to open the app in a
 
 ## Development Environment
 
-### Env Setup
+### VSCode
 
-TODO: Any environment setup goes here
-
-### VSCode Setup
+VS Code is the recommended text editor for this project.
+Many dev-time features will utilize VS Code functionality (such as extensions) and will be documented as such. 
+Use of another text editor may result in some documented dev-time features being unavailable.
 
 -  [Install VSCode](https://code.visualstudio.com) if needed.
 
-- Install VS Code Extensions
-  - ESLint *(Extension ID: dbaeumer.vscode-eslint)*
-  - Prettier *(Extension ID: esbenp.prettier-vscode)*
+### Code Styles & Linting
 
-- Configure VSCode's Settings.json 
-  ```json
+Code style in this project is enforced by [Prettier](./.prettierrc) and [ESLint](./.eslintrc.js).
+
+#### Manual Linting
+
+- `npm run lint`: Lint the entire project and SHOW any errors
+- `npm run lint -- --fix`: Lint the entire project and FIX any erros
+
+#### VS Code Setup For Code Styles/Linting
+
+- Install ESLint Extension (ID: esbenp.prettier-vscode)
+- Install Prettier Extension (ID: esbenp.prettier-vscode)
+
+Add the following to VS Code's `Settings.json` file:
+```json
   // Linting & Code Styles
   "[typescriptreact][typescript][javascript][javascriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -49,11 +61,8 @@ TODO: Any environment setup goes here
   },
   "editor.tabSize": 2,
   "editor.detectIndentation": false,
-  ```
-  
+```
 
-## Code Styles
+### Configure Env
 
-Code style in this project is enforced by Prettier and ESLint.
-If you are using VSCode and installed the Prettier and ESlint extensions propperly in the [VSCode Setup](#vscode-setup) step then VSCode should enforce the code styles automatically on save. 
-The code style rules are defined in the [./.prettierrc](./.prettierrc) file.
+TODO: Any environment setup goes here
