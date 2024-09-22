@@ -4,8 +4,11 @@ import { router } from 'expo-router';
 import React from 'react';
 import { Image, View } from 'react-native';
 import { Button, HelperText, Text } from 'react-native-paper';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export default function GettingStartedView() {
+  const insets = useSafeAreaInsets();
+
   const handleGoToAccountCreation = () => {
     router.push('/account-creation');
   };
@@ -21,7 +24,9 @@ export default function GettingStartedView() {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        padding: 30,
+        paddingTop: insets.top,
+        paddingBottom: insets.bottom,
+        paddingHorizontal: 30,
       }}
     >
       <View style={{ width: '40%', marginBottom: 20 }}>
